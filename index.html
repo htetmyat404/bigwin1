@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lottery Tricks Ai Perdition BIGWIN V1.0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    :root{
+      --bg: #0a0f1c;
+      --fg: #f1f5f9;
+      --card: #111827;
+      --card-elevated: #1f2937;
+      --ok: #10b981;
+      --bad: #ef4444;
+      --muted: #94a3b8;
+      --line: #374151;
+      --accent: #6366f1;
+      --accent-hover: #5b5df4;
+      --glass-bg: rgba(17, 24, 39, 0.8);
+      --glass-border: rgba(148, 163, 184, 0.1);
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --focus-ring: 0 0 0 3px rgba(99, 102, 241, 0.5);
+    }
+
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #ffffff;
+        --fg: #0f172a;
+        --card: #f8fafc;
+        --card-elevated: #ffffff;
+        --muted: #64748b;
+        --line: #e2e8f0;
+        --glass-bg: rgba(248, 250, 252, 0.9);
+        --glass-border: rgba(100, 116, 139, 0.1);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
+
+    * { box-sizing: border-box; }
+    
+    html, body { height: 100%; }
+    
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      color: var(--fg);
+      background: linear-gradient(135deg, var(--bg) 0%, #1e293b 100%);
+      background-attachment: fixed;
+      -webkit-tap-highlight-color: transparent;
+      transition: padding 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+      line-height: 1.6;
+    }
+
+    .hidden { display: none !important; }
+
+    /* Focus styles for accessibility */
+    *:focus-visible {
+      outline: none;
+      box-shadow: var(--focus-ring);
+      border-radius: 8px;
+    }
+
+    /* ========== LOGIN PAGE (GATE) ========== */
+    .gate-wrap {
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 24px 16px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .gate-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .gate-header h2 {
+      margin: 0 0 8px;
+      font-size: clamp(24px, 5vw, 32px);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), #8b5cf6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+    }
+
+    .gate-header p.sub {
+      color: var(--muted);
+      margin: 0;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .gate-header p.sub code {
+      background: var(--card);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Inconsolata, "Liberation Mono", "Courier New", monospace;
+      font-size: 14px;
+      color: var(--accent);
+      border: 1px solid var(--line);
+    }
+
+    .card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      font-size: 16px;
+      font-weight: 500;
+      outline: none;
+      transition: all 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    input {
+      background: var(--card);
+      color: var(--fg);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Inconsolata, "Liberation Mono", "Courier New", monospace;
+    }
+
+    input::placeholder {
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    input:focus {
+      border-color: var(--accent);
+      box-shadow: var(--focus-ring);
+      transform: translateY(-1px);
+    }
+
+    .btn {
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      border: none;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    #loginMsg {
+      margin-top: 12px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      display: none;
+    }
+
+    #loginMsg.hint {
+      color: var(--muted);
+      background: transparent;
+      display: block;
+    }
+
+    #loginMsg.ok {
+      color: var(--ok);
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      display: block;
+    }
+
+    #loginMsg.ok::before {
+      content: "✓ ";
+    }
+
+    #loginMsg.err {
+      color: var(--bad);
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      display: block;
+    }
+
+    #loginMsg.err::before {
+      content: "! ";
+    }
+
+    #remain {
+      margin-top: 16px;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ok);
+      text-align: center;
+      padding: 16px;
+      background: var(--glass-bg);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+    }
+
+    .start-wrap {
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 24px;
+      z-index: 40;
+      display: none;
+      animation: slideUp 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .start-btn {
+      width: 100%;
+      padding: 20px 24px;
+      border-radius: 16px;
+      border: 0;
+      background: linear-gradient(135deg, var(--ok), #059669);
+      color: white;
+      font-weight: 900;
+      font-size: 18px;
+      box-shadow: var(--shadow-xl);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .start-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 25px 35px -5px rgba(16, 185, 129, 0.3);
+    }
+
+    .start-btn:active {
+      transform: translateY(-1px);
+    }
+
+    /* ========== APP (PAGE 1/2 SPA) ========== */
+    body.p2-active { padding: 0; }
+    body.p2-active .app-header { display: none !important; }
+
+    .page { display: none; }
+    .page.active { display: block; }
+
+    .app {
+      padding: clamp(16px, 4vw, 24px);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .app-header {
+      margin: 0 0 16px;
+      text-align: center;
+    }
+
+    .title {
+      margin: 0;
+      font-weight: 800;
+      font-size: clamp(20px, 5vw, 28px);
+      background: linear-gradient(135deg, var(--fg), var(--muted));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .next-wrap {
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      color: var(--fg);
+      border-radius: 20px;
+      padding: 20px 24px;
+      margin: 16px 0 20px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--glass-border);
+    }
+
+    .row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      margin-bottom: 16px;
+    }
+
+    .label {
+      font-size: 12px;
+      font-weight: 600;
+      opacity: 0.8;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .value {
+      font-size: clamp(18px, 6vw, 28px);
+      font-weight: 900;
+      margin-top: 4px;
+      word-break: break-all;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.1;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 14px;
+      border: 2px solid var(--muted);
+      background: transparent;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      transition: all 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .pill.big {
+      border-color: var(--ok);
+      color: var(--ok);
+      background: rgba(16, 185, 129, 0.1);
+    }
+
+    .pill.small {
+      border-color: var(--bad);
+      color: var(--bad);
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    .stat-box {
+      margin-left: auto;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .stat-line, .timer {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .timer strong {
+      font-size: 15px;
+      color: var(--fg);
+      font-weight: 700;
+    }
+
+    .stat-line strong {
+      color: var(--fg);
+      font-weight: 700;
+    }
+
+    .credit {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      opacity: 0.8;
+      text-transform: uppercase;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .credit b {
+      color: #f59e0b;
+      font-weight: 800;
+      background: linear-gradient(90deg, #f59e0b, #d97706, #f59e0b);
+      background-size: 200% 100%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 200% 0; }
+      50% { background-position: -200% 0; }
+    }
+
+    .cards {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .card-r {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: var(--fg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+      position: relative;
+    }
+
+    .card-r:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-r::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--muted);
+      border-radius: 16px 0 0 16px;
+      opacity: 0.3;
+    }
+
+    .card-r.win::before {
+      background: var(--ok);
+      opacity: 1;
+    }
+
+    .card-r.lose::before {
+      background: var(--bad);
+      opacity: 1;
+    }
+
+    .kv {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 8px 0;
+      min-height: 24px;
+    }
+
+    .k {
+      font-weight: 600;
+      color: var(--muted);
+      margin-right: 16px;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .v {
+      font-weight: 700;
+      text-align: right;
+      font-size: 14px;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 50px;
+      border: 1.5px solid var(--muted);
+      font-weight: 800;
+      font-size: 12px;
+      background: transparent;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .chip.big {
+      border-color: var(--ok);
+      color: var(--ok);
+      background: rgba(16, 185, 129, 0.1);
+    }
+
+    .chip.small {
+      border-color: var(--bad);
+      color: var(--bad);
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    .win {
+      color: var(--ok);
+      font-weight: 900;
+    }
+
+    .lose {
+      color: var(--bad);
+      font-weight: 900;
+    }
+
+    /* Page 2 full screen site */
+    .frame-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      border: 0;
+      border-radius: 0;
+      overflow: hidden;
+      background: #000;
+      display: none;
+    }
+
+    .frame-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), #8b5cf6);
+      z-index: 2;
+    }
+
+    body.p2-active .frame-wrap {
+      display: block;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #fff;
+    }
+
+    /* FAB: movable top/bottom + per-page icon */
+    .fab {
+      position: fixed;
+      right: 20px;
+      z-index: 60;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 1px solid var(--glass-border);
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      color: var(--fg);
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fab:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .fab:active {
+      transform: scale(0.98);
+    }
+
+    .fab.bottom {
+      bottom: 24px;
+      top: auto;
+    }
+
+    .fab.top {
+      top: 24px;
+      bottom: auto;
+    }
+
+    /* Icon & Position picker */
+    .picker {
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      z-index: 70;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .picker .sheet {
+      background: var(--card-elevated);
+      color: var(--fg);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      width: min(92vw, 420px);
+      box-shadow: var(--shadow-xl);
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .section-title {
+      font-weight: 800;
+      margin: 16px 0 8px 0;
+      font-size: 16px;
+      color: var(--fg);
+    }
+
+    .section-title:first-child {
+      margin-top: 0;
+    }
+
+    .icons {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .ico {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      padding: 12px 0;
+      min-height: 48px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--card);
+      cursor: pointer;
+      transition: all 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .ico:hover {
+      background: var(--glass-bg);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .ico:active {
+      transform: scale(0.95);
+    }
+
+    .pos-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .pos-btn {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--fg);
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+      min-height: 48px;
+    }
+
+    .pos-btn:hover {
+      background: var(--glass-bg);
+    }
+
+    .pos-btn.active {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--accent);
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--fg);
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .close-btn:hover {
+      background: var(--glass-bg);
+    }
+
+    .picker-tip {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 12px;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .row {
+        gap: 16px;
+      }
+
+      .stat-box {
+        margin-left: 0;
+        text-align: left;
+        width: 100%;
+      }
+
+      .value {
+        font-size: clamp(16px, 5vw, 24px);
+      }
+
+      .icons {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    @media (max-width: 360px) {
+      .icons {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* Enhanced touch targets for mobile */
+    @media (hover: none) and (pointer: coarse) {
+      .fab {
+        width: 68px;
+        height: 68px;
+      }
+
+      .ico, .pos-btn, .close-btn {
+        min-height: 44px;
+      }
+
+      input, button {
+        min-height: 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== LOGIN (GATE) ========== -->
+  <section id="gate">
+    <div class="gate-wrap">
+      <div class="gate-header">
+        <h2>🔑 Enter Access Key</h2>
+        <p class="sub">Example: <code>KEY-XXXXXXX</code>. Entering another valid key will extend your time.</p>
+      </div>
+
+      <div class="card">
+        <div class="form-group">
+          <input id="keyInput" placeholder="KEY-XXXXXXX" autocomplete="one-time-code" aria-label="Enter your access key" />
+        </div>
+        <div class="form-group">
+          <button id="activateBtn" class="btn" aria-label="Activate access key">Activate</button>
+        </div>
+        <div id="loginMsg" class="hint" aria-live="polite"></div>
+      </div>
+
+      <div id="remain" role="status" aria-live="polite"></div>
+
+      <!-- Start button (shows only when time is valid) -->
+      <div class="start-wrap" id="startWrap">
+        <button class="start-btn" id="startBtn" aria-label="Start prediction application">▶ Prediction Start</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== APP (PAGE 1/2 SPA) ========== -->
+  <section id="app" class="hidden">
+    <div class="app">
+      <div class="app-header">
+        <h2 class="title"lottery tricks ai prediction (777bigwin-30sec)</h2>
+      </div>
+
+      <!-- Page 1 -->
+      <section id="page1" class="page active">
+        <div class="next-wrap" id="nextBox" style="display:none">
+          <div class="row">
+            <div>
+              <div class="label">Next Issue</div>
+              <div class="value" id="nextIssue">—</div>
+            </div>
+            <div>
+              <div class="label">Next Prediction (Locked)</div>
+              <div class="value"><span id="nextPred" class="pill">—</span></div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-line">
+                Win: <strong id="winCount">0</strong> • Lose: <strong id="loseCount">0</strong> •
+                Winrate: <strong id="winRate">0%</strong>
+              </div>
+              <div class="timer" role="status" aria-live="polite">Auto refresh in <strong id="countdown">—</strong></div>
+            </div>
+          </div>
+          <div class="credit">CRD BY <b>PYAUNGGYI</b></div>
+        </div>
+        <div id="cards" class="cards"></div>
+      </section>
+
+      <!-- Page 2 (full-bleed website only) -->
+      <section id="page2" class="page">
+        <div class="frame-wrap">
+          <iframe id="bigwinFrame" src="https://www.777bigwingame.bet/#/register?invitationCode=22884102596" allow="clipboard-write *;" title="BIGWIN Game Interface"></iframe>
+        </div>
+      </section>
+    </div>
+
+    <!-- Floating nav (tap = toggle page, long-press = icon/position picker FOR CURRENT PAGE) -->
+    <div class="fab bottom" id="navFab" title="Switch page" aria-label="Switch page">🔁</div>
+
+    <!-- Icon & Position picker -->
+    <div class="picker" id="iconPicker" aria-hidden="true" role="dialog" aria-label="Customize floating button">
+      <div class="sheet">
+        <div class="section-title">Choose FAB Icon (this page only)</div>
+        <div class="icons" id="iconGrid" role="group" aria-label="Select icon for floating button"></div>
+
+        <div class="section-title" style="margin-top:12px">Position (this page)</div>
+        <div class="pos-row" role="group" aria-label="Select position for floating button">
+          <button id="posTop" class="pos-btn" aria-label="Position floating button at top-right">Top-Right</button>
+          <button id="posBottom" class="pos-btn" aria-label="Position floating button at bottom-right">Bottom-Right</button>
+        </div>
+
+        <button id="closePicker" class="close-btn" aria-label="Close customization panel">Close</button>
+        <div class="picker-tip">Tip: Long-press the round button anytime to change icon/position.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Firebase compat SDK (one version for both apps) -->
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-database-compat.js"></script>
+
+  <script>
+  /************** LOGIN APP (lotteryoo) **************/
+  const loginConfig = {
+    apiKey: "AIzaSyBynBT5W_C6rNVEUB4j7ABiJQeSfQGU4Mo",
+    authDomain: "lotteryoo.firebaseapp.com",
+    databaseURL: "https://lotteryoo-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "lotteryoo",
+    storageBucket: "lotteryoo.firebasestorage.app",
+    messagingSenderId: "72782915477",
+    appId: "1:72782915477:web:011fc0a614aff7c666b89c",
+    measurementId: "G-M06SN8YLD3"
+  };
+  const loginApp = firebase.initializeApp(loginConfig, 'login');
+  const loginDb  = loginApp.database();
+
+  // server clock offset (avoid client time drift)
+  let serverOffset = 0;
+  loginDb.ref(".info/serverTimeOffset").on("value", s => { serverOffset = s?.val() || 0; });
+  const now = () => Date.now() + serverOffset;
+
+  let expireTime = parseInt(localStorage.getItem("expireTime") || "0", 10) || 0;
+  let gateTimerId = null;
+
+  const keyInput   = document.getElementById("keyInput");
+  const activateBtn= document.getElementById("activateBtn");
+  const loginMsg   = document.getElementById("loginMsg");
+  const remainEl   = document.getElementById("remain");
+  const startWrap  = document.getElementById("startWrap");
+  const startBtn   = document.getElementById("startBtn");
+  const gateSec    = document.getElementById("gate");
+  const appSec     = document.getElementById("app");
+
+  function setLoginMsg(text, ok=true){
+    loginMsg.className = ok ? "hint ok" : "hint err";
+    loginMsg.textContent = text || "";
+  }
+
+  async function activateKey(){
+    try{
+      setLoginMsg("");
+      const key = (keyInput.value || "").trim().toUpperCase();
+      if(!key){ alert("Please enter a key"); return; }
+
+      const snap = await loginDb.ref("keys/"+key).get();
+      if(!snap.exists()){ setLoginMsg("❌ Invalid Key", false); return; }
+
+      const data = snap.val();
+      if(data.used){ setLoginMsg("❌ This key is already used!", false); return; }
+
+      const extra = (data.duration || 0) * 60 * 1000;
+      if(!extra){ setLoginMsg("❌ Key has no duration.", false); return; }
+
+      const newExpire = Math.max(now(), expireTime) + extra;
+
+      await loginDb.ref("keys/"+key).update({
+        used: true,
+        activatedAt: firebase.database.ServerValue.TIMESTAMP,
+        expiresAt: newExpire
+      });
+
+      expireTime = newExpire;
+      localStorage.setItem("expireTime", String(expireTime));
+      setLoginMsg(`✅ Key Activated. Added ${data.duration} minutes.`);
+      keyInput.value = "";
+      startGateTimer();
+    }catch(err){
+      console.error(err);
+      setLoginMsg("❌ Activation failed: " + (err?.code || err?.message || err), false);
+    }
+  }
+
+  function startGateTimer(){
+    if(gateTimerId) clearInterval(gateTimerId);
+    gateTimerId = setInterval(()=>{
+      const t = now();
+      if(expireTime > t){
+        const sec = Math.floor((expireTime - t)/1000);
+        const m = Math.floor(sec/60), s = sec%60;
+        remainEl.textContent = `⏳ Time Left: ${m}m ${s.toString().padStart(2,"0")}s`;
+        startWrap.style.display = "block"; // show Prediction Start
+      }else{
+        remainEl.textContent = "❌ Session expired";
+        startWrap.style.display = "none";
+      }
+    }, 1000);
+  }
+
+  activateBtn.addEventListener("click", activateKey);
+  keyInput.addEventListener("keyup", (e)=>{ if(e.key==="Enter") activateKey(); });
+
+  // Enter app when valid
+  startBtn.addEventListener("click", ()=>{
+    if (now() >= expireTime){ alert("Session expired. Please activate a key again."); return; }
+    gateSec.classList.add("hidden");
+    appSec.classList.remove("hidden");
+    // Also start watchdog for session while inside app:
+    startSessionWatchdog();
+  });
+
+  // resume if still valid
+  if(expireTime && now() < expireTime){ startGateTimer(); }
+
+  // If session expires while inside app → return to login gate
+  let watchdogId = null;
+  function startSessionWatchdog(){
+    if(watchdogId) clearInterval(watchdogId);
+    watchdogId = setInterval(()=>{
+      if (now() >= expireTime){
+        alert("Session expired. Returning to Login.");
+        appSec.classList.add("hidden");
+        gateSec.classList.remove("hidden");
+        startGateTimer();
+        clearInterval(watchdogId);
+      }
+    }, 1000);
+  }
+
+  /************** APP: PAGE ROUTER + FAB (icon/position per page) **************/
+  const P1 = document.getElementById('page1');
+  const P2 = document.getElementById('page2');
+  const fab = document.getElementById('navFab');
+  const picker = document.getElementById('iconPicker');
+  const iconGrid = document.getElementById('iconGrid');
+  const posTopBtn = document.getElementById('posTop');
+  const posBottomBtn = document.getElementById('posBottom');
+  const closePicker = document.getElementById('closePicker');
+
+  const ICONS = ["🔁","🔄","🔃","↔️","🔗","🏠","🎯","🚀","⭐","⚡","📱","🧭","🎲","🎮","🌀","💫","✅","❎","📌","📍"];
+  const ICON_KEY_P1 = "bw_nav_icon_choice_p1";
+  const ICON_KEY_P2 = "bw_nav_icon_choice_p2";
+  const POS_KEY_P1  = "bw_nav_pos_choice_p1";   // "top" | "bottom"
+  const POS_KEY_P2  = "bw_nav_pos_choice_p2";
+
+  const currentPage = () => P2.classList.contains('active') ? 2 : 1;
+  const loadIcon = (p) => localStorage.getItem(p===2?ICON_KEY_P2:ICON_KEY_P1) || (p===2 ? "🔗" : "🔁");
+  const saveIcon = (p,v) => localStorage.setItem(p===2?ICON_KEY_P2:ICON_KEY_P1, v);
+  const loadPos  = (p) => localStorage.getItem(p===2?POS_KEY_P2:POS_KEY_P1) || "bottom";
+  const savePos  = (p,v) => localStorage.setItem(p===2?POS_KEY_P2:POS_KEY_P1, v);
+
+  function refreshFabAppearance(){
+    const pg = currentPage();
+    fab.textContent = loadIcon(pg);
+    const pos = loadPos(pg);
+    fab.classList.remove('top','bottom');
+    fab.classList.add(pos === 'top' ? 'top' : 'bottom');
+    posTopBtn.classList.toggle('active', pos === 'top');
+    posBottomBtn.classList.toggle('active', pos !== 'top');
+  }
+  function initPicker(){
+    iconGrid.innerHTML = "";
+    ICONS.forEach(ic => {
+      const div = document.createElement('div');
+      div.className = 'ico'; div.textContent = ic;
+      div.setAttribute('role', 'button');
+      div.setAttribute('tabindex', '0');
+      div.setAttribute('aria-label', 'Select ' + ic + ' icon');
+      div.onclick = () => { saveIcon(currentPage(), ic); refreshFabAppearance(); picker.style.display='none'; };
+      div.onkeydown = (e) => { if(e.key === 'Enter' || e.key === ' ') { div.onclick(); e.preventDefault(); } };
+      iconGrid.appendChild(div);
+    });
+    posTopBtn.onclick = () => { savePos(currentPage(), 'top'); refreshFabAppearance(); };
+    posBottomBtn.onclick = () => { savePos(currentPage(), 'bottom'); refreshFabAppearance(); };
+  }
+  initPicker();
+  refreshFabAppearance();
+
+  function setPage(which){
+    if (which === 2){
+      P1.classList.remove('active'); P2.classList.add('active');
+      document.body.classList.add('p2-active');   // full-bleed
+      location.hash = "#p2";
+    }else{
+      P2.classList.remove('active'); P1.classList.add('active');
+      document.body.classList.remove('p2-active');
+      location.hash = "#p1";
+    }
+    refreshFabAppearance();
+  }
+  function togglePage(){ setPage(currentPage() === 2 ? 1 : 2); }
+  // default entry: Page 1
+  setPage(1);
+
+  let pressTimer=null;
+  fab.addEventListener('click', () => { if (!pressTimer) togglePage(); });
+  fab.addEventListener('touchstart', ()=>{ pressTimer=setTimeout(()=>{ picker.style.display='grid'; picker.setAttribute('aria-hidden', 'false'); pressTimer=null; }, 500); }, {passive:true});
+  fab.addEventListener('touchend', ()=>{ if(pressTimer){ clearTimeout(pressTimer); pressTimer=null; }});
+  fab.addEventListener('mousedown', ()=>{ pressTimer=setTimeout(()=>{ picker.style.display='grid'; picker.setAttribute('aria-hidden', 'false'); pressTimer=null; }, 600); });
+  fab.addEventListener('mouseup', ()=>{ if(pressTimer){ clearTimeout(pressTimer); pressTimer=null; }});
+  closePicker.onclick = ()=> { picker.style.display='none'; picker.setAttribute('aria-hidden', 'true'); };
+  picker.addEventListener('click', (e)=>{ if(e.target===picker) { picker.style.display='none'; picker.setAttribute('aria-hidden', 'true'); }});
+
+  /************** PREDICTION APP (bigwin30) **************/
+  const predConfig = {
+    apiKey: "AIzaSyArgde3-Xn0boi6FO-ZfN6vPPMRdULPN24",
+    authDomain: "bigwin30-3d1e2.firebaseapp.com",
+    databaseURL: "https://bigwin30-3d1e2-default-rtdb.europe-west1.firebasedatabase.app/",
+    projectId: "bigwin30-3d1e2",
+    storageBucket: "bigwin30-3d1e2.appspot.com",
+    messagingSenderId: "214823361254",
+    appId: "1:214823361254:web:9b9f101f2134e2bc48f927",
+    measurementId: "G-E4YSHMD6X4"
+  };
+  const predApp = firebase.initializeApp(predConfig, 'pred');
+  const predDb  = predApp.database();
+  const ref = predDb.ref("bigwin/default");
+
+  const patternStr = `
+  SMALL BIG SMALL SMALL BIG SMALL SMALL BIG BIG SMALL SMALL SMALL SMALL BIG BIG SMALL
+  BIG BIG BIG SMALL SMALL BIG SMALL SMALL BIG SMALL SMALL BIG SMALL SMALL BIG SMALL
+  SMALL BIG SMALL SMALL SMALL SMALL SMALL BIG SMALL BIG BIG BIG SMALL SMALL BIG BIG
+  BIG BIG BIG SMALL SMALL BIG SMALL BIG BIG SMALL BIG SMALL SMALL
+  `;
+  const PATTERN = patternStr.trim().split(/\s+/).map(s => s.toUpperCase());
+  const PLEN = PATTERN.length;
+
+  const toBigIntSafe = (x) => { const s = String(x).replace(/\D/g,'') || "0"; try { return BigInt(s); } catch { return 0n; } };
+  const lastDigit = (n) => { const s = String(n).trim(); const d = parseInt(s[s.length-1], 10); return Number.isNaN(d) ? 0 : d; };
+  const classify  = (num) => (lastDigit(num) >= 5 ? "BIG" : "SMALL");
+  const modBI = (a, m) => { const mm = BigInt(m); let r = a % mm; if (r < 0) r += mm; return r; };
+
+  const LOCK_KEY   = "bw_locked_predictions_v3";
+  const ANCHOR_KEY = "bw_pattern_anchor_issue_v3";
+  const load = (k, fb) => { try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : fb; } catch { return fb; } };
+  const save = (k, v) => { try{ localStorage.setItem(k, JSON.stringify(v)); } catch{} };
+  let LOCKS = load(LOCK_KEY, {});
+  let anchorIssueStr = localStorage.getItem(ANCHOR_KEY) || null;
+
+  let lastSeenMaxIssue = null, countdownTimer = null;
+  const COUNTDOWN_SECS = 30;
+  function startCountdown(){
+    const cd = document.getElementById("countdown");
+    let t = COUNTDOWN_SECS;
+    cd.textContent = t + "s";
+    if (countdownTimer) clearInterval(countdownTimer);
+    countdownTimer = setInterval(() => {
+      t -= 1; cd.textContent = t + "s";
+      if (t <= 0){ clearInterval(countdownTimer); cd.textContent = "Waiting…"; }
+    }, 1000);
+  }
+  function renderWinrate(rows){
+    const w = rows.filter(r=>r.result==="Win").length;
+    const l = rows.filter(r=>r.result==="Lose").length;
+    const tot = w + l;
+    const rate = tot ? Math.round((w/tot)*1000)/10 : 0;
+    document.getElementById("winCount").textContent = w;
+    document.getElementById("loseCount").textContent = l;
+    document.getElementById("winRate").textContent = rate + "%";
+  }
+  function cardHTML(item){
+    const actualChip = `<span class="chip ${item.actual==='BIG'?'big':'small'}">${item.actual}</span>`;
+    const predictedChip = `<span class="chip ${item.predicted==='BIG'?'big':'small'}">${item.predicted}</span>`;
+    const resultClass = item.result === "Win" ? "win" : "lose";
+    const cardClass = item.result === "Win" ? "win" : (item.result === "Lose" ? "lose" : "");
+    return `
+      <div class="card-r ${cardClass}">
+        <div class="kv"><span class="k">Issue</span><span class="v" style="font-variant-numeric:tabular-nums">${item.issue}</span></div>
+        <div class="kv"><span class="k">Number</span><span class="v">${item.number}</span></div>
+        <div class="kv"><span class="k">Actual</span><span class="v">${actualChip}</span></div>
+        <div class="kv"><span class="k">Predicted</span><span class="v">${predictedChip}</span></div>
+        <div class="kv"><span class="k">Win / Lose</span><span class="v ${resultClass}">${item.result}</span></div>
+        <div class="kv"><span class="k">Premium</span><span class="v">${item.premium ?? ""}</span></div>
+      </div>
+    `;
+  }
+
+  const nextBox = document.getElementById("nextBox");
+  const nextIssueEl = document.getElementById("nextIssue");
+  const nextPredEl  = document.getElementById("nextPred");
+  const cardsEl     = document.getElementById("cards");
+
+  ref.on("value", (snap) => {
+    const v = snap.val(); if (!v) return;
+
+    const raw = Array.isArray(v.list) ? v.list.filter(Boolean)
+               : (v.list && typeof v.list === 'object') ? Object.values(v.list)
+               : [];
+    const list = raw.map(it => {
+      const issueStr = String(it.issueNumber ?? it.issue ?? it.issue_no ?? "").trim();
+      return { issueStr, issueBI: toBigIntSafe(issueStr), number: it.number ?? it.result ?? it.openNumber ?? "", premium: it.premium ?? "" };
+    }).filter(it => it.issueStr.length > 0);
+
+    if (!list.length) return;
+
+    const maxIssueBI = list.reduce((mx, it) => it.issueBI > mx ? it.issueBI : mx, -1n);
+    const nextIssueBI = maxIssueBI + 1n;
+    const nextIssueStr = nextIssueBI.toString();
+
+    if (lastSeenMaxIssue !== null && maxIssueBI.toString() !== lastSeenMaxIssue) startCountdown();
+    lastSeenMaxIssue = maxIssueBI.toString();
+
+    if (!anchorIssueStr){ anchorIssueStr = nextIssueStr; localStorage.setItem(ANCHOR_KEY, anchorIssueStr); }
+    const anchorBI = toBigIntSafe(anchorIssueStr);
+
+    const nextIdx = Number(modBI(nextIssueBI - anchorBI, PLEN));
+    const shouldBe = PATTERN[nextIdx];
+    if (!LOCKS[nextIssueStr]){ LOCKS[nextIssueStr] = shouldBe; save(LOCK_KEY, LOCKS); }
+
+    nextBox.style.display = "block";
+    nextIssueEl.textContent = nextIssueStr;
+    const nextPredLocked = LOCKS[nextIssueStr];
+    nextPredEl.textContent = nextPredLocked;
+    nextPredEl.className = "pill " + (nextPredLocked === "BIG" ? "big" : "small");
+
+    list.sort((a,b)=> (b.issueBI > a.issueBI ? 1 : (b.issueBI < a.issueBI ? -1 : 0)));
+    const rowsForRate = [];
+    const cards = [];
+
+    list.forEach(item => {
+      const actual = (String(item.number).trim().length ? classify(item.number) : "—");
+      const idx = Number(modBI(item.issueBI - anchorBI, PLEN));
+      const derived = PATTERN[idx];
+      const predicted = LOCKS[item.issueStr] ?? derived;
+
+      let resultText = "—";
+      if (actual === "BIG" || actual === "SMALL"){
+        resultText = (predicted === actual) ? "Win" : "Lose";
+        rowsForRate.push({ result: resultText });
+      }
+
+      cards.push(cardHTML({
+        issue: item.issueStr,
+        number: String(item.number ?? ""),
+        actual,
+        predicted,
+        result: resultText,
+        premium: item.premium ?? ""
+      }));
+    });
+
+    renderWinrate(rowsForRate);
+    cardsEl.innerHTML = cards.join("");
+  });
+  </script>
+
+</body>
+</html>
